@@ -1,0 +1,701 @@
+/* ============
+  Sophie & Jade — styles
+=========== */
+
+@font-face {
+  font-family: "Wellyon";
+  src: url("./fonts/Wellyon/Wellyon-Regular.woff2") format("woff2");
+  font-weight: 100;
+  font-style: normal;
+  font-display: swap;
+}
+
+:root {
+  --bg: #cdc5b6;
+  --ink: #1b1a18;
+  --muted: #595650;
+  --accent: #382416;
+  --stone: #807d7c;
+  --paper: #ffffff;
+
+  --font-display: "Cormorant Garamond", serif;
+  --font-text: "Belleza", sans-serif;
+  --font-tag: "Wellyon", cursive;
+  --font-sans: Inter, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+}
+
+* {
+  box-sizing: border-box
+}
+
+html,
+body {
+  height: 100%
+}
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--accent);
+  font-family: var(--font-text);
+  line-height: 1.4;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+h1,
+h2,
+h3,
+p,
+img,
+figure,
+figcaption,
+a,
+button {
+  padding: 0;
+  margin: 0;
+}
+
+h1,
+h2,
+h3 {
+  font-family: var(--font-display);
+}
+
+img {
+  max-width: 100%;
+  display: block
+}
+
+.container {
+  width: min(980px, 90vw);
+  margin-inline: auto
+}
+
+.smallcaps {
+  font-variant: small-caps;
+  letter-spacing: .06em
+}
+
+.script {
+  font-family: var(--font-tag);
+  font-size: 2rem
+}
+
+.rounded {
+  border-radius: 18px;
+  overflow: hidden
+}
+
+.shadow {
+  box-shadow: 0 10px 30px rgba(0, 0, 0, .18)
+}
+
+.section {
+  padding: 64px 0
+}
+
+.section__title {
+  margin: .2rem 0 0
+}
+
+.section__subtitle {
+  font-family: var(--font-display);
+  letter-spacing: .08em;
+  font-size: 2rem;
+  font-weight: 500;
+}
+
+.grid-2 {
+  display: grid;
+  grid-template-columns: 1.2fr .8fr;
+  gap: 36px
+}
+
+@media (max-width:860px) {
+  .grid-2 {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Hero */
+.hero {
+  position: relative;
+  min-height: 96vh;
+  background: url('assets/images/soandja.jpeg') center/cover no-repeat fixed;
+  display: grid;
+  place-items: center;
+  color: #fff;
+}
+
+.hero__overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to bottom, rgba(0, 0, 0, .45), rgba(0, 0, 0, .40));
+}
+
+.hero__inner {
+  position: relative;
+  text-align: center
+}
+
+.overtitle {
+  opacity: .9;
+  margin: 0 0 12px
+}
+
+.hero__title {
+  font-family: var(--font-display);
+  font-weight: 400;
+  letter-spacing: .35em;
+  margin: 0
+}
+
+.ampersand {
+  margin-inline: 18px
+}
+
+.hero__date {
+  margin-top: 10px;
+  font-size: clamp(16px, 2.2vw, 20px)
+}
+
+.scroll-indicator {
+  margin-top: 28px;
+  width: 38px;
+  height: 58px;
+  border: 2px solid #fff;
+  border-radius: 30px;
+  background: transparent;
+  position: relative;
+  cursor: pointer;
+}
+
+.scroll-indicator span {
+  position: absolute;
+  top: 8px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: #fff;
+  animation: scroll 1.6s infinite;
+}
+
+@keyframes scroll {
+  0% {
+    opacity: 1;
+    transform: translate(-50%, 0)
+  }
+
+  80% {
+    opacity: 0;
+    transform: translate(-50%, 22px)
+  }
+
+  100% {
+    opacity: 0
+  }
+}
+
+/* Intro */
+.intro {
+  .monogram {
+    font-size: 44px;
+    font-family: var(--font-display);
+    color: var(--accent);
+    text-align: center;
+  }
+
+  .pres {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-top: 40px;
+    gap: 16px;
+
+    h3 {
+      font-size: 2.25rem;
+      font-weight: 500;
+    }
+
+    h2 {
+      font-weight: normal;
+    }
+
+    p {
+      text-align: center;
+    }
+  }
+
+  .story {
+    display: flex;
+    flex-direction: row;
+    margin-top: 80px;
+    height: 334px;
+    position: relative;
+    /* couleur ou image secondaire pour l’autre moitié */
+    background: #cdc5b6;
+    min-height: 340px;
+    /* exemple */
+    overflow: hidden;
+    /* sécurise les débords */
+
+    .story-ctn {
+      display: flex;
+      flex-direction: row-reverse;
+      background-color: #807d7c59;
+      border: 1px solid #ffffff87;
+      width: 65%;
+      height: 262px;
+      position: relative;
+      z-index: 2;
+      align-self: center;
+      box-shadow: 5px 5px 15px -10px #ffffff96;
+
+      .vertical {
+        inset: auto 10px 10px auto;
+        writing-mode: vertical-rl;
+        transform: rotate(180deg);
+        letter-spacing: .1em;
+        padding: 8px 10px;
+        border-radius: 10px;
+        text-align: center;
+        color: var(--paper);
+      }
+
+      p {
+        align-self: center;
+        width: 70%;
+      }
+    }
+  }
+
+  .story::before {
+    content: "";
+    position: absolute;
+    inset: 0 0 0 auto;
+    /* top:0; right:0; bottom:0; left:auto */
+    width: 50%;
+    background: url('assets/images/imerg.png') center/cover no-repeat;
+    z-index: 0;
+  }
+
+  /* Overlay (optionnel) dégradé de droite vers gauche */
+  .story::after {
+    content: "";
+    position: absolute;
+    inset: 0 0 0 auto;
+    width: 50%;
+    background: linear-gradient(to left, rgba(0, 0, 0, .25), rgba(0, 0, 0, 0));
+    pointer-events: none;
+    z-index: 1;
+  }
+
+  .invit {
+    padding: 40px 20px 0 20px;
+    font-size: 18px;
+  }
+
+  /* Fallback iOS/Android pour 'fixed' */
+  @supports (-webkit-touch-callout: none) {
+    .story::before {
+      background-attachment: scroll;
+    }
+  }
+
+}
+
+/* Timeline */
+
+.timeline {
+  padding-top: 20px;
+  padding-bottom: 20px;
+
+  h2 {
+    text-align: center;
+  }
+}
+
+.sett-prog {
+  display: flex;
+  flex-direction: row;
+
+  .script {
+    inset: auto 10px 10px auto;
+    writing-mode: vertical-rl;
+    transform: rotate(180deg);
+    letter-spacing: .1em;
+    padding: 8px 10px;
+    border-radius: 10px;
+    text-align: center;
+  }
+}
+
+.events {
+  list-style: none;
+  padding: 0;
+  margin: 24px 0
+}
+
+.event {
+  display: grid;
+  grid-template-columns: 72px 1fr;
+  gap: 18px;
+  padding: 14px 0;
+  border-bottom: 1px solid rgba(0, 0, 0, .08);
+}
+
+.event__time {
+  font-family: "Belleza";
+  letter-spacing: .12em
+}
+
+.event__title {
+  margin: 0 0 4px;
+}
+
+.event__place {
+  margin: 0;
+  color: var(--muted)
+}
+
+/* RSVP */
+.rsvp {
+  position: relative;
+  /* couleur ou image secondaire pour l’autre moitié */
+  background: #cdc5b6;
+  min-height: 340px;
+  /* exemple */
+  overflow: hidden;
+  /* sécurise les débords */
+
+  .card {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 16px;
+    background-color: #807d7c59;
+    border: 1px solid #ffffff87;
+    position: relative;
+    z-index: 2;
+    align-self: center;
+    box-shadow: 5px 5px 15px -10px #ffffff96;
+    padding: 28px;
+
+    h2{
+      text-align: center;
+      color: var(--paper);
+    }
+
+    .btn,
+    .btn-cta {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      align-self: center;
+      width: fit-content;
+      max-width: 220px;
+      padding: 8px 22px;
+      border-radius: 4px;
+      border: none;
+      cursor: pointer;
+      font-family: "Belleza", sans-serif;
+      font-size: 16px;
+      letter-spacing: .08em;
+      border: solid 1px #ffffff73;
+      transition: transform .35s cubic-bezier(.2, .6, .2, 1), filter .35s, opacity .35s;
+    }
+
+    .btn {
+      background: #fff
+    }
+
+    .btn--accent,
+    .btn-cta {
+      background: transparent;
+      color: #fff;
+      box-shadow: 5px 5px 15px -10px #ffffff96;
+    }
+
+    .btn-cta:hover,
+    .btn--accent:hover {
+      filter: brightness(1.05);
+      transform: scale(1.06)
+    }
+  }
+}
+
+.rsvp::before {
+  content: "";
+  position: absolute;
+  inset: 0 auto 0 0;           /* top:0; right:auto; bottom:0; left:0 */
+  top: initial;
+  width: 80%;
+  height: 40%;
+  background: url('assets/images/parasol.png') center/cover no-repeat;
+  z-index: 0;    
+}
+
+/* Overlay (optionnel) dégradé de droite vers gauche */
+.rsvp::after {
+  content: "";
+  position: absolute;
+  inset: 0 auto 0 0;
+  width: 50%;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.rsvp__media {
+  position: absolute;
+  right: 0;
+  bottom: -40px;
+  width: min(360px, 38vw);
+  display: none;
+}
+
+@media (min-width:980px) {
+  .rsvp__media {
+    display: block
+  }
+}
+
+
+/* Section FAQ */
+.faq {
+  --ink: #382416;            /* texte principal (brun) */
+  --line: rgba(0,0,0,.25);   /* séparateurs */
+  --muted: rgba(0,0,0,.7);   /* texte panneau */
+}
+
+.accordion {
+  margin: 0;
+  padding: 0;
+  background: transparent;
+  border: 0;
+}
+
+
+.accordion summary {
+  list-style: none;
+  display: flex;
+  align-items: center;
+  gap: .75rem;
+  padding: 14px 0;
+  position: relative;
+  cursor: pointer;
+
+  font-family: "Cormorant Garamond", serif;
+  font-size: clamp(18px, 2.2vw, 20px);
+  color: var(--ink);
+  border-bottom: 1px solid var(--line);
+}
+
+
+.accordion summary::-webkit-details-marker { display: none; }
+
+
+.accordion summary::after,
+.accordion summary::before {
+  content: "";
+  position: absolute;
+  right: 4px;
+  top: 50%;
+  transform: translateY(-50%);
+  background: var(--ink);
+  transition: transform .25s ease, opacity .25s ease;
+}
+
+
+.accordion summary::after {
+  width: 16px;
+  height: 2px;
+}
+
+
+.accordion summary::before {
+  width: 2px;
+  height: 16px;
+  right: 11px; /* centré sur le horizontal */
+}
+
+
+.accordion[open] summary::before {
+  transform: translateY(-50%) scaleY(0);
+  opacity: 0;
+}
+
+
+.accordion summary:hover { color: #23170f; }
+.accordion summary:focus-visible {
+  outline: 2px solid var(--ink);
+  outline-offset: 2px;
+}
+
+
+.accordion__panel {
+  padding: 12px 0 16px 0;
+  color: var(--muted);
+  animation: faqFade .25s ease;
+}
+@keyframes faqFade {
+  from { opacity: 0; transform: translateY(-6px); }
+  to   { opacity: 1; transform: none; }
+}
+
+
+.faq .accordion + .accordion summary {
+  border-top: none; /* lines only via bottom border */
+}
+
+
+/* Countdown */
+.countdown .container{
+  display:flex;
+  justify-content:center;
+}
+
+.timer{
+  display:grid;
+  grid-template-columns: repeat(4, minmax(90px,1fr));
+  align-items:center;
+  justify-items:center;
+
+
+  background: rgba(128,125,124,.50);      /* gris perle translucide */
+  border: 1px solid rgba(255,255,255,.65);
+  box-shadow: 0 2px 0 rgba(0,0,0,.06) inset;
+  padding: 24px 36px;
+  border-radius: 4px;                      /* mets 0 si tu veux bien carré */
+  width: min(820px, 92vw);
+}
+
+.timer__item{
+  background: transparent;
+  border: 0;
+  padding: 0;
+  border-radius: 0;
+  text-align: center;
+}
+
+.timer__item span{
+  display:block;
+  font-family: "Cormorant Garamond", serif;
+  font-weight: 400;
+  font-size: clamp(36px, 6vw, 52px);
+  letter-spacing: .12em;                   /* espacement typique de la maquette */
+  line-height: 1;
+  color: #1b1a18;                          /* encre foncée */
+}
+
+.timer__item small{
+  display:block;
+  margin-top: 8px;
+  font-family: "Cormorant Garamond", serif;
+  font-size: 14px;
+  color: rgba(0,0,0,.75);
+}
+
+@media (max-width: 540px){
+  .timer{
+    grid-template-columns: repeat(4, 1fr);
+    padding: 16px 12px;
+  }
+  .timer__item span{ font-size: clamp(28px, 7vw, 36px); letter-spacing:.06em; }
+  .timer__item small{ font-size: 12px; }
+}
+
+
+/* Footer */
+.footer {
+  padding: 50px 0 90px;
+  text-align: center
+}
+
+.footer .brand {
+  font-family: "Belleza";
+  letter-spacing: .25em;
+  margin: 6px 0 0
+}
+
+/* Modal (dialog element) */
+.modal {
+  border: none;
+  padding: 0;
+  background: transparent
+}
+
+.modal::backdrop {
+  background: rgba(0, 0, 0, .3)
+}
+
+.modal[open] .modal__box {
+  animation: pop .32s cubic-bezier(.2, .6, .2, 1) both
+}
+
+@keyframes pop {
+  from {
+    opacity: 0;
+    transform: translateY(10px) scale(.98)
+  }
+
+  to {
+    opacity: 1;
+    transform: none
+  }
+}
+
+.modal__box {
+  width: min(720px, 92vw);
+  background: #fff;
+  border-radius: 20px;
+  padding: 22px;
+  position: relative;
+}
+
+.modal__close {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  border: none;
+  background: transparent;
+  font-size: 28px;
+  cursor: pointer;
+}
+
+.form__row {
+  margin: 10px 0
+}
+
+.form__row input,
+.form__row select,
+.form__row textarea {
+  width: 100%;
+  padding: 12px 14px;
+  border-radius: 12px;
+  border: 1px solid rgba(0, 0, 0, .15);
+  font-family: inherit;
+  background: #fff;
+}
+
+.form__actions {
+  display: flex;
+  gap: 10px;
+  justify-content: flex-end;
+  margin-top: 8px
+}
+
+/* Reveal on scroll */
+.fade {
+  opacity: 0;
+  transform: translateY(14px);
+  transition: all .6s ease
+}
+
+.fade.is-visible {
+  opacity: 1;
+  transform: none
+}
