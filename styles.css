@@ -151,7 +151,7 @@ img {
 /* Hero */
 .hero {
   position: relative;
-  min-height: 96vh;
+  min-height: 100vh;
   background: url('assets/images/soandja.jpeg') center/cover no-repeat fixed;
   display: grid;
   place-items: center;
@@ -161,7 +161,10 @@ img {
 .hero__overlay {
   position: absolute;
   inset: 0;
-  background: linear-gradient(to bottom, rgba(0, 0, 0, .45), rgba(0, 0, 0, .40));
+  background: var(--bg);
+  animation: heroGlow 18s ease-in-out infinite alternate;
+  transform: translate3d(0, 0, 0);
+  will-change: opacity;
 }
 
 .hero__inner {
@@ -188,6 +191,10 @@ img {
 .hero__date {
   margin-top: 10px;
   font-size: clamp(16px, 2.2vw, 20px)
+}
+
+.hero__title span {
+  display: inline-block;
 }
 
 .scroll-indicator {
@@ -450,6 +457,13 @@ img {
   bottom: -40px;
   width: min(360px, 38vw);
   display: none;
+}
+
+.rsvp__media img {
+  border-radius: 14px;
+  box-shadow: 0 20px 45px rgba(0, 0, 0, .28);
+  animation: floaty 24s ease-in-out infinite alternate;
+  transform-origin: center;
 }
 
 @media (min-width:980px) {
@@ -742,6 +756,92 @@ img {
   margin-top: 8px
 }
 
+/* Motion choreography */
+[data-animate] {
+  opacity: 0;
+  transform: translateY(18px);
+  transition: opacity .7s cubic-bezier(.2, .6, .2, 1), transform .7s cubic-bezier(.2, .6, .2, 1);
+  will-change: opacity, transform;
+}
+
+[data-animate="stagger"] {
+  transform: translateY(28px);
+  transition-delay: .05s;
+}
+
+[data-animate="lift"] {
+  transform: translateY(24px) scale(.96);
+}
+
+[data-animate="fade-mask"] {
+  transform: none;
+  clip-path: inset(0 0 100% 0);
+  transition: clip-path 1s ease, opacity .8s ease;
+}
+
+[data-animate="unfold"] {
+  transform: none;
+  opacity: 0;
+  clip-path: inset(0 100% 0 0);
+  transform-origin: left center;
+  transition: clip-path .8s cubic-bezier(.22, .61, .36, 1), opacity .6s ease;
+}
+
+[data-animate="unfold-vertical"] {
+  opacity: 0;
+  transform: scaleY(.76);
+  transform-origin: top center;
+  clip-path: inset(0 0 100% 0);
+  transition: transform .7s cubic-bezier(.22, .61, .36, 1), clip-path .7s cubic-bezier(.22, .61, .36, 1), opacity .45s ease;
+}
+
+[data-animate="unfold-reverse"] {
+  opacity: 0;
+  transform: scaleX(.82);
+  transform-origin: right center;
+  clip-path: inset(0 0 0 100%);
+  transition: transform .7s cubic-bezier(.22, .61, .36, 1), clip-path .7s cubic-bezier(.22, .61, .36, 1), opacity .45s ease;
+}
+
+[data-animate="timeline"] {
+  opacity: 0;
+  transform: translateY(32px);
+  transition: opacity .9s cubic-bezier(.19, 1, .22, 1), transform .9s cubic-bezier(.19, 1, .22, 1);
+}
+
+[data-animate].is-animated {
+  opacity: 1;
+  transform: none;
+}
+
+[data-animate="unfold"].is-animated {
+  clip-path: inset(0 0 0 0);
+}
+
+[data-animate="unfold-vertical"].is-animated {
+  clip-path: inset(0 0 0 0);
+}
+
+[data-animate="unfold-reverse"].is-animated {
+  clip-path: inset(0 0 0 0);
+}
+
+[data-animate="timeline"].is-animated {
+  transform: none;
+}
+
+[data-animate="fade-mask"].is-animated {
+  clip-path: inset(0 0 0 0);
+}
+
+[data-animate="lift"].is-animated {
+  transform: none;
+}
+
+[data-animate="stagger"].is-animated {
+  transform: none;
+}
+
 /* Reveal on scroll */
 .fade {
   opacity: 0;
@@ -752,4 +852,45 @@ img {
 .fade.is-visible {
   opacity: 1;
   transform: none
+}
+
+@keyframes heroGlow {
+  from {
+    background: linear-gradient(to bottom, rgba(0, 0, 0, .62), rgba(205, 197, 182, .32));
+  }
+
+  to {
+    background: linear-gradient(to bottom, rgba(0, 0, 0, .48), rgba(205, 197, 182, .52));
+  }
+}
+
+@keyframes floaty {
+  0% {
+    transform: translate3d(0, 0, 0) scale(1);
+  }
+
+  50% {
+    transform: translate3d(0, -10px, 0) scale(1.02);
+  }
+
+  100% {
+    transform: translate3d(0, 6px, 0) scale(1.01);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hero__overlay,
+  .rsvp__media img,
+  .scroll-indicator span,
+  [data-animate] {
+    animation: none !important;
+    transition-duration: .01ms !important;
+    transition-delay: 0s !important;
+  }
+
+  [data-animate] {
+    opacity: 1 !important;
+    transform: none !important;
+    clip-path: inset(0 0 0 0) !important;
+  }
 }

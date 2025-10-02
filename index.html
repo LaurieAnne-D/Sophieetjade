@@ -22,14 +22,14 @@
     <div class="hero__overlay"></div>
 
     <section class="hero__inner container">
-      <h1 class="overtitle script">Save the date</h1>
-      <h2 class="hero__title">
-        <span class="smallcaps">SOPHIE</span>
-        <span class="ampersand">&amp;</span>
-        <span class="smallcaps">JADE</span>
+      <h1 class="overtitle script" data-animate="fade-up">Save the date</h1>
+      <h2 class="hero__title" data-animate="fade-up">
+        <span class="smallcaps" data-animate="stagger">SOPHIE</span>
+        <span class="ampersand" data-animate="stagger">&amp;</span>
+        <span class="smallcaps" data-animate="stagger">JADE</span>
       </h2>
-      <p class="hero__date">12 décembre 2026</p>
-      <button class="scroll-indicator" aria-label="Faire défiler" data-scroll-to="#intro">
+      <p class="hero__date" data-animate="fade-up">12 décembre 2026</p>
+      <button class="scroll-indicator" aria-label="Faire défiler" data-scroll-to="#intro" data-animate="fade-up">
         <span></span>
       </button>
     </section>
@@ -40,17 +40,17 @@
     <div class="section intro" id="intro">
       <div class="grid-2">
         <div class="intro__left">
-          <div class="monogram">SJ</div>
+          <div class="monogram" data-animate="fade-up">SJ</div>
 
           <section class="container pres">
-            <h2 class="section__title script">Pour le meilleur</h2>
-            <h3 class="section__subtitle">SOPHIE &amp; JADE</h3>
-            <p>Le 12 décembre 2026, nous faisons de notre amour une promesse, portée par tout ce que nous
+            <h2 class="section__title script" data-animate="fade-up">Pour le meilleur</h2>
+            <h3 class="section__subtitle" data-animate="fade-up">SOPHIE &amp; JADE</h3>
+            <p data-animate="fade-up">Le 12 décembre 2026, nous faisons de notre amour une promesse, portée par tout ce que nous
               avons déjà construit.</p>
           </section>
 
-          <div class="story">
-            <section class="story-ctn">
+          <div class="story" data-animate="fade-mask">
+            <section class="story-ctn" data-animate="unfold">
               <h2 class="vertical">NOTRE HISTOIRE</h2>
               <p>De nos premiers pas hésitants à nos projets fous... après des voyages, des débats, et des milliers de
                 cafés
@@ -58,7 +58,7 @@
             </section>
           </div>
 
-          <p class="invit">Rejoignez-nous pour écrire la première page de notre toujours et célébrer ce moment qui nous
+          <p class="invit" data-animate="fade-up">Rejoignez-nous pour écrire la première page de notre toujours et célébrer ce moment qui nous
             lie pour la
             vie.</p>
 
@@ -77,7 +77,7 @@
           <p class="script"> Amour, Toujours</p>
 
           <ol class="events">
-            <li class="event fade">
+            <li class="event" data-animate="timeline">
               <time class="event__time">10:30</time>
               <div class="event__body">
                 <h3 class="event__title">Cérémonie civile</h3>
@@ -85,7 +85,7 @@
               </div>
             </li>
 
-            <li class="event fade">
+            <li class="event" data-animate="timeline">
               <time class="event__time">15:00</time>
               <div class="event__body">
                 <h3 class="event__title">Cérémonie laïque</h3>
@@ -93,7 +93,7 @@
               </div>
             </li>
 
-            <li class="event fade">
+            <li class="event" data-animate="timeline">
               <time class="event__time">17:00</time>
               <div class="event__body">
                 <h3 class="event__title">Cocktail &amp; Photos</h3>
@@ -101,7 +101,7 @@
               </div>
             </li>
 
-            <li class="event fade">
+            <li class="event" data-animate="timeline">
               <time class="event__time">19:30</time>
               <div class="event__body">
                 <h3 class="event__title">Dîner de réception</h3>
@@ -116,7 +116,7 @@
     <!-- RSVP -->
     <section class="section rsvp" id="rsvp">
       <div class="container">
-        <div class="card fade">
+        <div class="card" data-animate="unfold-vertical">
           <h2>RSVP</h2>
           <p>Merci de nous dire si tu seras présent·e afin de célébrer cette journée spéciale. Réponse souhaitée
             avant
@@ -124,9 +124,6 @@
           <button class="btn-cta" id="rsvp-open" aria-haspopup="dialog">Répondre</button>
         </div>
       </div>
-      <figure class="rsvp__media">
-        <img src="assets/images/parasol.jpeg" alt="Nous deux au bord de l’eau" />
-      </figure>
     </section>
 
     <!-- FAQ -->
@@ -134,7 +131,7 @@
       <div class="container">
         <h2 class="section__subtitle">FAQ</h2>
 
-        <details class="accordion">
+        <details class="accordion" data-animate="fade-up">
           <summary>Y a‑t‑il un dress code ?</summary>
           <div class="accordion__panel">
             <p>Palette conseillée : sable, crème, brun profond, gris perle. Viens comme tu es : rien n’est
@@ -143,14 +140,14 @@
           </div>
         </details>
 
-        <details class="accordion">
+        <details class="accordion" data-animate="fade-up">
           <summary>Peut‑on venir avec des enfants ?</summary>
           <div class="accordion__panel">
             <p>Oui, un espace jeu et des chaises hautes seront prévus.</p>
           </div>
         </details>
 
-        <details class="accordion">
+        <details class="accordion" data-animate="fade-up">
           <summary>Où se garer ?</summary>
           <div class="accordion__panel">
             <p>Parking indiqué à l’entrée du site. Pense au covoiturage.</p>
@@ -161,7 +158,7 @@
 
     <!-- Countdown -->
     <section class="section countdown" aria-live="polite">
-      <div class="container timer">
+      <div class="container timer" data-animate="unfold-reverse">
         <div class="timer__item"><span id="d">111</span><small>Jours</small></div>
         <div class="timer__item"><span id="h">12</span><small>Heures</small></div>
         <div class="timer__item"><span id="m">44</span><small>Minutes</small></div>
@@ -173,9 +170,9 @@
   <footer class="footer">
     <!-- Out -->
     <section class=" out container">
-      <h2 class="monogram">SJ</h2>
-      <p class="script muted">à bientôt</p>
-      <h4 class="brand">SOPHIE &amp; JADE</h4>
+      <h2 class="monogram" data-animate="fade-up">SJ</h2>
+      <p class="script muted" data-animate="fade-up" data-animate-delay="120">à bientôt</p>
+      <h4 class="brand" data-animate="fade-up" data-animate-delay="240">SOPHIE &amp; JADE</h4>
     </section>
 
     <!-- Galerie -->
